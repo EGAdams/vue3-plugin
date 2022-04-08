@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 
 // entry point for the plugin system.
 import type { App } from "vue"; // The install() method is expecting its 1st argument to be of type App.

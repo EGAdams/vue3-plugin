@@ -2,7 +2,6 @@
       *  pulls the file from the upload "widget" and sets it to the image 
       */ -->
 <script lang="ts" setup>
-/* eslint-disable prettier/prettier */ // eslint-disable prettier/prettier
 
 // we need ref to "turn on the watcher"
 // inject is for pulling the img string from the plugin
@@ -13,13 +12,14 @@ const props = defineProps<{ customImg?: string; }>(); // optionally passed in fr
 // props come from the parent!
 
 // pull the img string from the plugin
-const img = inject( "specialUploadImage" ) as string; // provided by the viewer plugin
+const img = inject( "specialUploadImage" ) as string; // <-- inject ---<< provided by the viewer plugin
 
+// Did the props get dropped in from the parent ?? Was the img "provided" by the plugin?
 const imgVal = props.customImg ?? img;   // use the custom image if provided, otherwise 
                                          // just use the img "provided" by the plugin.
 
 // watch imgSRC
-const imgSRC = ref(  imgVal  ); // reference to the image src.  "watch" imgSRC is set here.
+const imgSRC = ref(  imgVal  ); // reference to the image src.  <----<< "watch" imgSRC is set here.
 
 // pull the file from the caught event object and 
 // pass it to the this.fileProcess() function
